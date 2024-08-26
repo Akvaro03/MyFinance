@@ -1,28 +1,65 @@
 # My Finance
 
-My Finance es una aplicación de finanzas personales desarrollada en React Native que te ayuda a gestionar tus ingresos y gastos, establecer presupuestos, y visualizar tus finanzas de manera clara y sencilla. La aplicación incluye funcionalidades avanzadas como sincronización en la nube, soporte multimoneda, y alertas personalizadas, todo con un diseño intuitivo y fácil de usar.
+My Finance es una aplicación de finanzas personales desarrollada en React Native, diseñada para ayudarte a gestionar tus ingresos y gastos de manera efectiva. Con una interfaz intuitiva y funcionalidades avanzadas, My Finance te proporciona las herramientas necesarias para tener un control total sobre tus finanzas.
 
-## **Características Principales**
+![My Finance Demo](demo.gif)
 
-- **Registro de Ingresos y Gastos:** Añade, edita y elimina transacciones con la opción de clasificarlas en categorías personalizables.
-- **Visualización de Datos:** Consulta tus finanzas mediante gráficos interactivos que muestran la distribución de tus gastos e ingresos por categoría y periodo.
-- **Presupuestos y Alertas:** Establece presupuestos para diferentes categorías y recibe alertas cuando estés cerca de superarlos.
-- **Sincronización en la Nube:** Mantén tus datos respaldados y sincronizados en todos tus dispositivos.
-- **Autenticación Segura:** Inicia sesión de forma segura con opciones de autenticación por correo electrónico, Google o Facebook.
-- **Soporte Multimoneda:** Gestiona tus finanzas en diferentes monedas con conversión automática basada en tasas de cambio actualizadas.
-- **Notificaciones Personalizadas:** Recibe notificaciones push para recordatorios de presupuestos y otras alertas importantes.
+## **Características**
+
+### **Funcionalidades Básicas**
+
+- **Registro de Ingresos y Gastos:**
+  - Añade, edita y elimina transacciones con facilidad.
+  - Clasifica las transacciones en categorías personalizables como comida, transporte, entretenimiento, entre otras.
+  - Permite agregar notas o descripciones adicionales a cada transacción.
+
+- **Visualización de Datos:**
+  - Visualiza un resumen de tus finanzas a través de gráficos interactivos.
+  - Consulta informes por periodos de tiempo específicos (diario, semanal, mensual).
+  - Filtra y agrupa tus transacciones por categorías, fechas o etiquetas.
+
+- **Categorización y Etiquetas:**
+  - Organiza tus finanzas mediante categorías y etiquetas personalizables.
+  - Facilita la búsqueda y organización de tus transacciones.
+
+### **Funcionalidades Avanzadas**
+
+- **Presupuestos y Alertas:**
+  - Establece presupuestos para distintas categorías y recibe alertas cuando estés cerca de superarlos.
+  - Recibe notificaciones push para alertas de presupuesto y recordatorios de registrar gastos.
+
+- **Sincronización y Copias de Seguridad:**
+  - Sincroniza tus datos en la nube para mantenerlos actualizados y accesibles desde cualquier dispositivo.
+  - Realiza copias de seguridad automáticas para proteger tu información.
+
+- **Autenticación y Seguridad:**
+  - Inicia sesión de forma segura con autenticación por correo electrónico, Google o Facebook.
+  - Protege tu cuenta con opciones de seguridad adicionales como PIN o biometría (huella digital o reconocimiento facial).
+
+- **Soporte Multimoneda y Conversión de Moneda:**
+  - Gestiona tus finanzas en múltiples monedas, con conversión automática según las tasas de cambio actualizadas.
+  - Personaliza las monedas utilizadas para distintas transacciones y categorías.
+
+- **Notificaciones Personalizadas:**
+  - Configura notificaciones para recibir alertas y recordatorios relevantes sobre tus finanzas.
 
 ## **Tecnologías Utilizadas**
 
-- **React Native:** Desarrollo de la interfaz de usuario.
-- **Redux / Context API:** Gestión del estado de la aplicación.
-- **SQLite:** Almacenamiento local de transacciones y datos.
-- **Firebase / AWS Amplify:** Sincronización en la nube y autenticación de usuarios.
-- **APIs Externas:** Integración con APIs para conversión de moneda y sincronización de datos.
-- **Detox / Jest:** Pruebas de la aplicación para garantizar su estabilidad y funcionalidad.
+- **Frontend:**
+  - React Native: Desarrollo de la interfaz de usuario y lógica de la aplicación.
+  - Redux / Context API: Gestión del estado global de la aplicación.
 
-## **Instalación**
+- **Backend:**
+  - Firebase / AWS Amplify: Sincronización en la nube, autenticación y almacenamiento de datos.
+  - SQLite: Almacenamiento local para mantener la funcionalidad sin conexión.
 
-1. Clona este repositorio en tu máquina local.
-   ```bash
-   git clone https://github.com/tu-usuario/my-finance.git
+- **Autenticación:**
+  - Firebase Authentication: Sistema de autenticación seguro para los usuarios.
+
+- **APIs Externas:**
+  - API de tasas de cambio: Conversión de monedas en tiempo real.
+  - Firebase Cloud Messaging: Notificaciones push para alertas y recordatorios.
+
+- **Testing:**
+  - Jest: Pruebas unitarias para asegurar la funcionalidad del código.
+  - Detox: Pruebas end-to-end para garantizar la estabilidad de la aplicación.
