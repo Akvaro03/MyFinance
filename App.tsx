@@ -9,8 +9,9 @@ import {
   Button,
 } from "react-native";
 
-import {NavigationContainer} from "@react-navigation/native";
+import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
+import NavigationService from "navigation/NavigationService";
 
 const Stack = createNativeStackNavigator();
 
@@ -20,58 +21,61 @@ export default function App() {
       <Stack.Navigator>
         <Stack.Screen
           name="Home"
-          component={HomeScreen}
-          options={{title: 'Welcome'}}
+          component={LoginScreen}
+          options={{ title: "Welcome" }}
         />
         <Stack.Screen name="Profile" component={ProfileScreen} />
       </Stack.Navigator>
     </NavigationContainer>
-  )
-}
-const HomeScreen = ({navigation}) => {
-  return (
-    <Button
-      title="Go to Jane's profile"
-      onPress={() =>
-        navigation.navigate('Profile', {name: 'Jane'})
-      }
-    />
   );
-};
-const ProfileScreen = ({navigation, route}) => {
+}
+// const HomeScreen = ({navigation}) => {
+//   return (
+//     <Button
+//       title="Go to Jane's profile"
+//       onPress={() =>
+//         navigation.navigate('Profile', {name: 'Jane'})
+//       }
+//     />
+//   );
+// };
+const ProfileScreen = ({ navigation, route }) => {
   return <Text>This is {route.params.name}'s profile</Text>;
 };
 
-
-// export default function App() {
-//   return (
-//     <View style={styles.container}>
-//       <Text style={styles.title}>Welcome</Text>
-//       <Text style={styles.subtitle}>
-//         Don't have a account? <Text style={styles.accent}>Sing up</Text>
-//       </Text>
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Email"
-//         placeholderTextColor="#34495E"
-//       />
-//       <TextInput
-//         style={styles.input}
-//         placeholder="Password"
-//         placeholderTextColor="#34495E"
-//         secureTextEntry
-//       />
-//       <TouchableOpacity style={styles.button}>
-//         <Text style={styles.buttonText}>Sign In</Text>
-//       </TouchableOpacity>
-//       <View style={styles.viewButtons}>
-//         <Text style={styles.forgotPassword}>Forgot Password?</Text>
-//         <Text style={styles.forgotPassword}>Sign in like Invited</Text>
-//       </View>
-//       <StatusBar style="auto" />
-//     </View>
-//   );
-// }
+function LoginScreen() {
+  return (
+    <View style={styles.container}>
+      <Text style={styles.title}>Welcome</Text>
+      <Text style={styles.subtitle}>
+        Don't have a account? <Text style={styles.accent}>Sing up</Text>
+      </Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        placeholderTextColor="#34495E"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Password"
+        placeholderTextColor="#34495E"
+        secureTextEntry
+      />
+      <Stack.Screen name="Profile" component={ProfileScreen} />
+      <TouchableOpacity
+        onPress={() => NavigationService.navigate("Profile", { name: "Jane" })}
+        style={styles.button}
+      >
+        <Text style={styles.buttonText}>Sign In</Text>
+      </TouchableOpacity>
+      <View style={styles.viewButtons}>
+        <Text style={styles.forgotPassword}>Forgot Password?</Text>
+        <Text style={styles.forgotPassword}>Sign in like Invited</Text>
+      </View>
+      <StatusBar style="auto" />
+    </View>
+  );
+}
 
 const styles = StyleSheet.create({
   container: {
