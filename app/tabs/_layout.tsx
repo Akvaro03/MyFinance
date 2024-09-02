@@ -1,10 +1,16 @@
-import { Tabs } from 'expo-router';
+import { Tabs } from "expo-router";
 
 export default function TabsLayout() {
   return (
-    <Tabs >
-      <Tabs.Screen name="home" options={{ headerShown: false }} />
-      <Tabs.Screen name="activity" options={{ headerShown: false }} />
+    <Tabs screenOptions={{ tabBarActiveTintColor: "blue" }}>
+      <Tabs.Screen
+        name="home"
+        options={{ headerShown: false, title: "Home" }}
+      />
+      <Tabs.Screen
+        name="activity"
+        options={{ headerShown: false, title: "Activity" }}
+      />
     </Tabs>
   );
 }
