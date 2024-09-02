@@ -1,5 +1,6 @@
 import DonutChart from "@/donutChart";
 import Palette from "@/palette";
+import AllActionsUser from "components/AllActionsUser";
 import ListAccounts from "components/ListAccounts";
 import { FlatList, ScrollView, Text, View } from "react-native";
 
@@ -11,30 +12,11 @@ const HomeScreen = () => {
         backgroundColor: Palette.darkShades,
       }}
     >
-      <DonutChart />
-      <ListAccounts />
-      {/* <FlatList >
-        <View
-          style={{
-            width: 150,
-            height: 50,
-            backgroundColor: Palette.lightShades,
-          }}
-        >
-          <Text style={{ color: Palette.mainColor }}>General Account</Text>
-          <Text style={{ color: Palette.darkAccent }}>280.000</Text>
-        </View>
-        <View
-          style={{
-            width: 150,
-            height: 50,
-            backgroundColor: Palette.lightShades,
-          }}
-        >
-          <Text style={{ color: Palette.mainColor }}>General Account</Text>
-          <Text style={{ color: Palette.darkAccent }}>280.000</Text>
-        </View>
-      </FlatList> */}
+      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+        <DonutChart />
+        <ListAccounts />
+        <AllActionsUser />
+      </ScrollView>
     </View>
   );
 };

@@ -8,7 +8,6 @@ function DonutChart() {
       style={{
         paddingVertical: 50,
         backgroundColor: Palette.darkShades,
-        flex: 1,
         margin: 20,
       }}
     >
