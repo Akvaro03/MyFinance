@@ -1,10 +1,12 @@
-import { router } from 'expo-router';
-import { View, Text } from 'react-native';
+import BarChartComponent from "@/barChart";
+import DonutChart from "@/donutChart";
+import { View } from "react-native";
 
-export default function HomeScreen() {
+const HomeScreen = () => {
     return (
-        <View>
-            <Text onPress={()=> router.back()}>Home Screen</Text>
+        <View style={{ flex: 1 }}>
+            <DonutChart />
         </View>
     );
-}
+};
+export default HomeScreen;
