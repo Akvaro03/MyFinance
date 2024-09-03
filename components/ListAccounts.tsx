@@ -1,20 +1,30 @@
 import Palette from "@/palette";
-import { FlatList, StyleSheet, Text, View } from "react-native";
+import {
+  FlatList,
+  StyleSheet,
+  Text,
+  TouchableOpacity,
+  View,
+  ViewStyle,
+} from "react-native";
 
 type ItemProps = { title: string; money: string };
+type ListAccountProps = { Style?: ViewStyle };
 
 const Item = ({ title, money }: ItemProps) => (
-  <View style={styles.item}>
+  <TouchableOpacity style={styles.item}>
     <Text style={styles.title}>{title}</Text>
     <Text style={styles.money}>{money}</Text>
-  </View>
+  </TouchableOpacity>
 );
 
-function ListAccounts() {
+function ListAccounts({ Style }: ListAccountProps) {
   return (
     <FlatList
       data={DATA}
       horizontal
+      showsHorizontalScrollIndicator={false}
+      style={{ ...Style }}
       renderItem={({ item }) => <Item {...item} />}
       keyExtractor={(item) => item.id}
     />

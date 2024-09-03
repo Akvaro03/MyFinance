@@ -14,7 +14,7 @@ const HomeScreen = () => {
     >
       <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
         <DonutChart />
-        <ListAccounts />
+        <ListAccounts Style={{ paddingLeft: 15 }} />
         <AllActionsUser />
       </ScrollView>
     </View>
