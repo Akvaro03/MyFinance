@@ -38,7 +38,7 @@ const DATA = [
     money: "$250.000",
   },
   {
-    id: "3ac68afc-c605-48d3-a4f8-fbd91aa97f63",
+    id: "3ac68afc-c304-48d3-a4f8-fbd91aa97f63",
     title: "Savings Account",
     money: "$250.000",
   },
@@ -59,24 +59,29 @@ const styles = StyleSheet.create({
     fontSize: 25,
     fontWeight: "700",
     color: Palette.darkShades,
+    fontFamily: "Inter-Black",
   },
   item: {
     backgroundColor: Palette.lightShades,
     padding: 15,
-    shadowColor: "#000",
-    shadowOffset: {
-      width: 0,
-      height: 4,
-    },
-    shadowOpacity: 0.32,
-    shadowRadius: 5.46,
     marginHorizontal: 8,
     borderRadius: 15,
     height: 90, // Asegura que cada item tenga una altura fija de 90
     justifyContent: "center", // Centra el contenido verticalmente dentro del item
+    shadowColor: "#000",
+    shadowOffset: {
+      width: -10,
+      height: 17,
+    },
+    shadowOpacity: 0.41,
+    shadowRadius: 9.11,
+
+    elevation: 14,
   },
   title: {
+    fontFamily: "Inter-Black",
     fontSize: 20,
+    fontWeight: "500",
   },
 });
 

@@ -1,23 +1,12 @@
-import { Text, View } from "react-native";
+import { StyleSheet, Text, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
 import Palette from "./palette";
+import { LinearGradient } from "expo-linear-gradient";
 
 function DonutChart() {
   return (
-    <View
-      style={{
-        paddingVertical: 50,
-        backgroundColor: Palette.darkShades,
-        margin: 20,
-      }}
-    >
-      <View
-        style={{
-          borderRadius: 20,
-          backgroundColor: Palette.darkAccent,
-          alignItems: "center",
-        }}
-      >
+    <View style={styles.containerComponent}>
+      <View style={styles.containerDonut}>
         <PieChart
           data={pieData}
           donut
@@ -28,15 +17,17 @@ function DonutChart() {
           innerCircleColor={Palette.darkShades}
           centerLabelComponent={() => {
             return (
-              <View style={{ justifyContent: "center", alignItems: "center" }}>
-                <Text style={{ fontSize: 14, color: "white" }}>Gastos</Text>
-                <Text
-                  style={{ fontSize: 30, color: "white", fontWeight: "bold" }}
-                >
-                  $253.000
-                </Text>
-                <Text style={{ fontSize: 14, color: "white" }}>1/09/2024</Text>
-              </View>
+              <LinearGradient
+                style={styles.innerDonut}
+                focusable
+                colors={["#091b2d", "#3a6fa3"]} // Define tus colores de gradiente aquí
+                start={{ x: 0, y: 0 }}
+                end={{ x: 1, y: 1 }}
+              >
+                <Text style={styles.titleDonut}>Gastos</Text>
+                <Text style={styles.valueDonut}>$253.000</Text>
+                <Text style={styles.dateDonut}>1/09/2024</Text>
+              </LinearGradient>
             );
           }}
         />
@@ -87,13 +78,13 @@ const renderLegendComponent = () => {
           }}
         >
           {renderDot("#006DFF")}
-          <Text style={{ color: "white" }}>Excellent: 47%</Text>
+          <Text style={{ color: Palette.lightShades }}>Excellent: 47%</Text>
         </View>
         <View
           style={{ flexDirection: "row", alignItems: "center", width: 120 }}
         >
           {renderDot("#8F80F3")}
-          <Text style={{ color: "white" }}>Okay: 16%</Text>
+          <Text style={{ color: Palette.lightShades }}>Okay: 16%</Text>
         </View>
       </View>
       <View style={{ flexDirection: "row", justifyContent: "center" }}>
@@ -106,17 +97,61 @@ const renderLegendComponent = () => {
           }}
         >
           {renderDot("#3BE9DE")}
-          <Text style={{ color: "white" }}>Good: 40%</Text>
+          <Text style={{ color: Palette.lightShades }}>Good: 40%</Text>
         </View>
         <View
           style={{ flexDirection: "row", alignItems: "center", width: 120 }}
         >
           {renderDot("#FF7F97")}
-          <Text style={{ color: "white" }}>Poor: 3%</Text>
+          <Text style={{ color: Palette.lightShades }}>Poor: 3%</Text>
         </View>
       </View>
     </>
   );
 };
 
+const styles = StyleSheet.create({
+  containerComponent: {
+    paddingVertical: 50,
+    margin: 20,
+  },
+  containerDonut: {
+    borderRadius: 20,
+    backgroundColor: Palette.darkAccent,
+    alignItems: "center",
+    shadowColor: "#000",
+    shadowOffset: {
+      width: -10,
+      height: 17,
+    },
+    shadowOpacity: 0.25,
+    shadowRadius: 9.11,
+
+    elevation: 14,
+  },
+  titleDonut: {
+    fontSize: 14,
+    color: Palette.lightShades,
+    fontFamily: "Inter-Black",
+  },
+  valueDonut: {
+    fontSize: 30,
+    color: Palette.mainColor,
+    fontWeight: "bold",
+    fontFamily: "Inter-Black",
+  },
+  innerDonut: {
+    width: 202, // Ajusta según el tamaño del círculo interior
+    height: 202, // Ajusta según el tamaño del círculo interior
+    justifyContent: "center",
+    alignItems: "center",
+    borderRadius: 100, // Esto asegura que sea un círculo
+  },
+
+  dateDonut: {
+    fontSize: 14,
+    color: Palette.lightShades,
+    fontFamily: "Inter-Black",
+  },
+});
 export default DonutChart;
