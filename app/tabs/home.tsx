@@ -3,9 +3,30 @@ import Palette from "@/palette";
 import AllActionsUser from "components/AllActionsUser";
 import ListAccounts from "components/ListAccounts";
 import { LinearGradient } from "expo-linear-gradient";
-import { FlatList, ScrollView, StyleSheet, Text, View } from "react-native";
+import { useFocusEffect } from "expo-router";
+import { useCallback } from "react";
+import { Dimensions, ScrollView, StyleSheet } from "react-native";
+import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
 
 const HomeScreen = () => {
+  const opacity = useSharedValue(0);
+
+  useFocusEffect(
+    useCallback(() => {
+      // Reiniciamos la animación cuando la pantalla se enfoca
+      opacity.value = withSpring(1, {
+        damping: 80, // Controla la suavidad de la animación
+        velocity: 2,
+        stiffness: 100, // Controla la resistencia
+      });
+
+      return () => {
+        // Esto reinicia el valor cuando la pantalla pierde el foco
+        opacity.value = 0;
+      };
+    }, [opacity])
+  );
+
   return (
     <LinearGradient
       focusable
@@ -14,11 +35,14 @@ const HomeScreen = () => {
       start={{ x: 0, y: 0 }}
       end={{ x: 1, y: 1 }}
     >
-      <ScrollView contentContainerStyle={{ flexGrow: 1 }}>
+      <Animated.ScrollView
+        style={{ opacity }}
+        contentContainerStyle={{ flexGrow: 1 }}
+      >
         <DonutChart />
         <ListAccounts Style={{ paddingLeft: 15 }} />
         <AllActionsUser />
-      </ScrollView>
+      </Animated.ScrollView>
     </LinearGradient>
   );
 };

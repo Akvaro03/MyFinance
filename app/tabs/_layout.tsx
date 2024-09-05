@@ -1,5 +1,5 @@
 import { Link, Tabs, useSegments } from "expo-router";
-import { Pressable, StyleSheet, View } from "react-native";
+import { Pressable, StyleSheet, Text, View } from "react-native";
 import FontAwesome6 from "@expo/vector-icons/FontAwesome6";
 
 export default function TabsLayout() {
@@ -41,7 +41,7 @@ const ButtonAddExpense = () => (
 const styles = StyleSheet.create({
   buttonAddExpense: {
     position: "absolute",
-    bottom: 20, // Ajusta esta distancia para sobresalir más o menos
+    bottom: 10, // Ajusta esta distancia para sobresalir más o menos
     left: "50%", // Esto lo posiciona en el centro horizontalmente
     transform: [{ translateX: -35 }], // La mitad del ancho para centrarlo perfectamente
     backgroundColor: "white",
