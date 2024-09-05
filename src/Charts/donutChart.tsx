@@ -1,12 +1,16 @@
-import { StyleSheet, Text, View } from "react-native";
-import { PieChart } from "react-native-gifted-charts";
+import { Pressable, StyleSheet, Text, View } from "react-native";
+import { PieChart, PieChartPropsType } from "react-native-gifted-charts";
 import Palette from "../palette";
 import { LinearGradient } from "expo-linear-gradient";
+import { FC } from "react";
 
-function DonutChart() {
+interface DonutChartProp {
+  onPress?: () => void | null;
+}
+const DonutChart: FC<DonutChartProp> = ({ onPress }) => {
   return (
     <View style={styles.containerComponent}>
-      <View style={styles.containerDonut}>
+      <Pressable onPress={onPress} style={styles.containerDonut}>
         <PieChart
           data={pieData}
           donut
@@ -31,10 +35,10 @@ function DonutChart() {
             );
           }}
         />
-      </View>
+      </Pressable>
     </View>
   );
-}
+};
 const pieData = [
   {
     value: 40,
@@ -46,69 +50,6 @@ const pieData = [
   { value: 16, color: "#BDB2FA", gradientCenterColor: "#8F80F3" },
   { value: 3, color: "#FFA5BA", gradientCenterColor: "#FF7F97" },
 ];
-const renderDot = (color) => {
-  return (
-    <View
-      style={{
-        height: 10,
-        width: 10,
-        borderRadius: 5,
-        backgroundColor: color,
-        marginRight: 10,
-      }}
-    />
-  );
-};
-const renderLegendComponent = () => {
-  return (
-    <>
-      <View
-        style={{
-          flexDirection: "row",
-          justifyContent: "center",
-          marginBottom: 10,
-        }}
-      >
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            width: 120,
-            marginRight: 20,
-          }}
-        >
-          {renderDot("#006DFF")}
-          <Text style={{ color: Palette.lightShades }}>Excellent: 47%</Text>
-        </View>
-        <View
-          style={{ flexDirection: "row", alignItems: "center", width: 120 }}
-        >
-          {renderDot("#8F80F3")}
-          <Text style={{ color: Palette.lightShades }}>Okay: 16%</Text>
-        </View>
-      </View>
-      <View style={{ flexDirection: "row", justifyContent: "center" }}>
-        <View
-          style={{
-            flexDirection: "row",
-            alignItems: "center",
-            width: 120,
-            marginRight: 20,
-          }}
-        >
-          {renderDot("#3BE9DE")}
-          <Text style={{ color: Palette.lightShades }}>Good: 40%</Text>
-        </View>
-        <View
-          style={{ flexDirection: "row", alignItems: "center", width: 120 }}
-        >
-          {renderDot("#FF7F97")}
-          <Text style={{ color: Palette.lightShades }}>Poor: 3%</Text>
-        </View>
-      </View>
-    </>
-  );
-};
 
 const styles = StyleSheet.create({
   containerComponent: {

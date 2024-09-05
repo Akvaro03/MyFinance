@@ -1,1 +1,1 @@
-export { default } from "@/pages/addExpense";
+export { default } from "@/pages/addExpensePage";

@@ -3,10 +3,11 @@ import Palette from "@/palette";
 import AllActionsUser from "@/components/AllActionsUser";
 import ListAccounts from "@/components/ListAccounts";
 import { LinearGradient } from "expo-linear-gradient";
-import { useFocusEffect } from "expo-router";
+import { router, useFocusEffect } from "expo-router";
 import { useCallback } from "react";
 import { StyleSheet } from "react-native";
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
+import AnimatedScrollView from "@/components/AnimatedScrollView";
 
 const HomeScreen = () => {
   const opacity = useSharedValue(0);
@@ -28,22 +29,11 @@ const HomeScreen = () => {
   );
 
   return (
-    <LinearGradient
-      focusable
-      style={styles.container}
-      colors={["#091b2d", "#3a6fa3"]} // Define tus colores de gradiente aquí
-      start={{ x: 0, y: 0 }}
-      end={{ x: 1, y: 1 }}
-    >
-      <Animated.ScrollView
-        style={{ opacity }}
-        contentContainerStyle={{ flexGrow: 1 }}
-      >
-        <DonutChart />
-        <ListAccounts style={{ paddingLeft: 15 }} />
-        <AllActionsUser />
-      </Animated.ScrollView>
-    </LinearGradient>
+    <AnimatedScrollView>
+      <DonutChart onPress={() => router.push("/history")} />
+      <ListAccounts style={{ paddingLeft: 15 }} />
+      <AllActionsUser />
+    </AnimatedScrollView>
   );
 };
 
