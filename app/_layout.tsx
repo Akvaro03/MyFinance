@@ -7,10 +7,20 @@ export default function Layout() {
   });
 
   return (
-      <Stack screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="login" />
-        <Stack.Screen name="tabs" options={{ headerShown: false }} />
-        <Stack.Screen name="history" options={{ headerShown: true }} />
-      </Stack>
+    <Stack screenOptions={{ headerShown: false }}>
+      <Stack.Screen name="login" />
+      <Stack.Screen name="tabs" options={{ headerShown: false }} />
+      <Stack.Screen
+        name="history"
+        options={{
+          headerShown: true,
+          title: "Expenses",
+          headerBackTitle: "Back",
+          headerTransparent: true,
+          headerTitleStyle: { color: "white" },
+          animation: "slide_from_bottom",
+        }}
+      />
+    </Stack>
   );
 }

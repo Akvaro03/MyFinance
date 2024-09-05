@@ -6,20 +6,16 @@ import { ScrollViewProps, StyleSheet } from "react-native";
 import Animated, { useSharedValue, withSpring } from "react-native-reanimated";
 
 function AnimatedScrollView({ children }: ScrollViewProps) {
-  const opacity = useSharedValue(0);
+  const opacity = useSharedValue(.2);
 
   useFocusEffect(
     useCallback(() => {
       // Reiniciamos la animación cuando la pantalla se enfoca
-      opacity.value = withSpring(1, {
-        damping: 80, // Controla la suavidad de la animación
-        velocity: 2,
-        stiffness: 100, // Controla la resistencia
-      });
+      opacity.value = withSpring(1);
 
       return () => {
         // Esto reinicia el valor cuando la pantalla pierde el foco
-        opacity.value = 0;
+        opacity.value = .2;
       };
     }, [opacity])
   );
