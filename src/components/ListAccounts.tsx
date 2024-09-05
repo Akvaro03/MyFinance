@@ -1,4 +1,5 @@
 import Palette from "@/palette";
+import { FC } from "react";
 import {
   FlatList,
   StyleSheet,
@@ -8,30 +9,42 @@ import {
   ViewStyle,
 } from "react-native";
 
-type ItemProps = { title: string; money: string };
-type ListAccountProps = { Style?: ViewStyle };
+interface ItemProps {
+  title: string;
+  money: string;
+}
+// Props para el componente ListAccounts
+interface ListAccountsProps {
+  style?: ViewStyle; // Cambio de Style a style para seguir la convención común
+}
 
-const Item = ({ title, money }: ItemProps) => (
+interface AccountItem {
+  id: string;
+  title: string;
+  money: string;
+}
+
+const Item: FC<ItemProps> = ({ title, money }) => (
   <TouchableOpacity style={styles.item}>
     <Text style={styles.title}>{title}</Text>
     <Text style={styles.money}>{money}</Text>
   </TouchableOpacity>
 );
 
-function ListAccounts({ Style }: ListAccountProps) {
+const ListAccounts: FC<ListAccountsProps> = ({ style }) => {
   return (
     <FlatList
       data={DATA}
       horizontal
       showsHorizontalScrollIndicator={false}
-      style={[styles.listAccount, { ...Style }]}
+      style={[styles.listAccount, { ...style }]}
       renderItem={({ item }) => <Item {...item} />}
       keyExtractor={(item) => item.id}
     />
   );
-}
+};
 
-const DATA = [
+const DATA: AccountItem[] = [
   {
     id: "bd7acbea-c1b1-46c2-aed5-3ad53abb28ba",
     title: "General Account",

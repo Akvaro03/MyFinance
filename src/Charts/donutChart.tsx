@@ -1,6 +1,6 @@
 import { StyleSheet, Text, View } from "react-native";
 import { PieChart } from "react-native-gifted-charts";
-import Palette from "./palette";
+import Palette from "../palette";
 import { LinearGradient } from "expo-linear-gradient";
 
 function DonutChart() {
