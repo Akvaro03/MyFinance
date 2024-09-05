@@ -24,7 +24,7 @@ function ListAccounts({ Style }: ListAccountProps) {
       data={DATA}
       horizontal
       showsHorizontalScrollIndicator={false}
-      style={{ ...Style }}
+      style={[styles.listAccount, { ...Style }]}
       renderItem={({ item }) => <Item {...item} />}
       keyExtractor={(item) => item.id}
     />
@@ -55,6 +55,9 @@ const DATA = [
 ];
 
 const styles = StyleSheet.create({
+  listAccount: {
+    paddingBottom: 25,
+  },
   money: {
     fontSize: 25,
     fontWeight: "700",
